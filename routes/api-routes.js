@@ -25,8 +25,8 @@ router.post("/api/workouts", ({ body }, res) => {
 });
 
 // Add exercise to workout route
-router.put("/api/workouts/:id", ({ body }, res) => {
-  Workout.findOneAndUpdate({ _id: mongojs.ObjectId(req.params.id) }, body)
+router.put("/api/workouts/:id", ({ body, params }, res) => {
+  Workout.findOneAndUpdate({ _id: params.id }, { $push: { exercises: body }}, { new: true })
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
