@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const Workout = require("../models/workout.js");
 
-// Get all workouts route
+// Get all workouts route and adding totalDuration
 router.get("/api/workouts", (req, res) => {
-  Workout.find({})
+  Workout.aggregate([{ $set: { totalDuration: { $sum: '$exercises.duration' }}}])
     .sort({ day: 1 })
     .then(dbWorkout => {
       res.json(dbWorkout);
@@ -27,7 +27,9 @@ router.post("/api/workouts", ({ body }, res) => {
 // Add exercise to workout route
 router.put("/api/workouts/:id", ({ body, params }, res) => {
   Workout.findOneAndUpdate({ _id: params.id }, { $push: { exercises: body }}, { new: true })
+    // .then(({_id}) => Workout.aggregate([{ $match: { _id: _id }}, { $set: { totalDuration: { $sum: duration } }}]))
     .then(dbWorkout => {
+      console.log(dbWorkout);
       res.json(dbWorkout);
     })
     .catch(err => {
@@ -48,7 +50,6 @@ router.get("/api/workouts/range", (req, res) => {
     });
 });
 
-
 // TODO save workouts in bulk if app was offline
 // router.post("/api/transaction/bulk", ({ body }, res) => {
 //   Transaction.insertMany(body)
@@ -59,7 +60,5 @@ router.get("/api/workouts/range", (req, res) => {
 //       res.status(400).json(err);
 //     });
 // });
-
-
 
 module.exports = router;

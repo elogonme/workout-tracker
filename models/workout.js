@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const workoutSchema = new Schema({
+const WorkoutSchema = new Schema({
     day: { 
       type: Date, 
       default: Date.now
@@ -10,6 +10,7 @@ const workoutSchema = new Schema({
 
     exercises: [
       {
+        _id: false,
         type: {
           type: String,
           enum: [ "resistance", "cardio" ],
@@ -39,6 +40,12 @@ const workoutSchema = new Schema({
     ]
 });
 
-const Workout = mongoose.model("Workout", workoutSchema);
+// WorkoutSchema.methods.totalDuration = function() {
+//   let total = 0;
+//   this.exercises.forEach(ex => total += ex.duration)
+//   return total;
+// };
+
+const Workout = mongoose.model("Workout", WorkoutSchema);
 
 module.exports = Workout;
