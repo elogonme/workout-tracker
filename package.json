@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "eslint server.js && npx mocha ./tests/index-spec.js --exit",
     "start": "node server.js",
     "watch": "nodemon server.js",
     "seed": "node seeders/seed.js"
