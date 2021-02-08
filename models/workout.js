@@ -11,6 +11,7 @@ const workoutSchema = new Schema({
     exercises: [
       {
         type: {
+          type: String,
           enum: [ "resistance", "cardio" ],
           description: "Can only be one of the enum values and is required"},
         name: {
