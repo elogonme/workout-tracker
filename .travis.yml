@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- stable
+npm: true
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: aDYGCuUem4KHmAzYndw0NbV7G1HATuyiIbnezB6/8fDgPSJaSFT0PsJNeK+47BYrEGQ0PSWkTw6Z6fVcD9tUSG3PkzZlVr2UB6PcKKLltoDxODlIJ8hPcT+PEm7NRY3cTzyBg+sG0Gk6Y2EWw/lWoFQTDrk55QSRLvEHLmV5FU4LU9u1eZnt4lWnZvyd2ppehMGFTJ4HxEZtA9EvK0I9aYwQb/R6nyojkoKEmMijVrymckt3eJO22GvLw/VMCiHQnSQItpYT9+CNHvjMVXx7/746Fo3GWV5PQq8qfrMqfI9FEywyQRSy2O/e4QXgDXe4hXehr+1cb/swD9sLnuA91g8AYz+wU5dETJt+e50JxS5G9XTybvglt4DbFjl+0DsANBN1PiYtixPArLgwnoXyM4k9CpxKQPgu1wjW2ChcRObUP3IEBh7/WZAGk/ImtUbeSZd4hAh4IzBnibF5qkucmwciBQbNzplOTJhhTg9Ql6IcbmiWYTUhyhqOAlZIQWFuMWORSxlc1J37npMKccRMUJd8aECqAs8ACunrPkdSHLZfPYuPmPsWSnmiwQNlGQFg11fftu8LxrPxcBNNAVC73ekkHymgYOi9Glgauxhg02xt5Wrw5pvAWM7oXlbeRJFNlelZD+IKYmuNMsue2yCEDTyPli3vB3+vIt0L0Sv/ak4=
+  app: fitness-tracker-mdb
+  on:
+    repo: elogonme/workout-tracker
+    branch: main
+  skip_cleanup: 'true'
