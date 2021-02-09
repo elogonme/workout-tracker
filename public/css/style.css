@@ -7,9 +7,10 @@
 }
 
 html,
-body,
-.wrapper {
+body
+{
   height: 100%;
+  background-color: #f2f8ff;
 }
 
 body {
@@ -19,7 +20,7 @@ body {
 nav {
   background-color: #5793fd;
   color: #ffffff;
-  height: 80px;
+  height: 60px;
   padding: 10px;
   line-height: 3;
   font-size: 1.2rem;
@@ -38,14 +39,33 @@ nav a:hover{
 }
 
 header {
-  height: 150px;
-  padding-top: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   text-align: center;
   font-size: 1.5rem;
 }
 
 header h1 {
   transform: skewX(-2deg);
+}
+
+.icon {
+  height: 2rem;
+  vertical-align: middle;
+}
+
+.icon-big {
+  height: 3rem;
+  vertical-align: middle;
+}
+
+.icon-small {
+  height: 1.2rem;
+  vertical-align: middle;
+}
+
+.nv-link {
+  margin-right: 10px;
 }
 
 select {
@@ -101,7 +121,7 @@ input {
 
 .wrapper {
   background-color: #f2f8ff;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 .card.m-auto,
@@ -398,7 +418,7 @@ form > button {
 
 .prev-workout .buttons {
   display: flex;
-  height: 75px;
+  height: 60px;
   margin-top: 30px;
 }
 

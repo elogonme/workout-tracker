@@ -5,29 +5,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <title>Fitness Tracker</title>
 </head>
 
 <body>
   <nav>
-    <a href="/">Fitness Tracker</a>
-    <a href="/stats">Dashboard</a>
+    <a href="/" class="nv-link animate__animated animate__fadeIn">
+      <img src="img/deadlift_white.png" alt="athlete icon" class="icon-small">
+      Fitness Tracker
+    </a>
+    <a href="/stats" class="animate__animated animate__fadeIn">
+      <img src="img/chart_60px.png" alt="chart icon" class="icon-small">
+      Dashboard
+    </a>
   </nav>
   <div class="wrapper workout">
     <header>
-      <h1>Fitness Tracker</h1>
+      <h1 class="animate__animated animate__pulse">
+        <img src="img/deadlift_500px.png" alt="athlete icon" class="icon-big">
+        Fitness Tracker</h1>
     </header>
     <div class="ui container workout">
-      <div class="ui raised card m-auto">
+      <div class="ui raised card m-auto animate__animated animate__fadeIn">
         <div class="prev-workout">
           <h3>Last Workout</h3>
           <div>
             <div class="workout-stats"></div>
             <div class="buttons">
-              <a id="continue-btn" href="/exercise?" class="huge ui blue button">Continue Workout</a>
-              <a href="/exercise" class="huge positive ui button">New Workout</a>
+              <a id="continue-btn" href="/exercise?" class="huge ui blue button">
+                Continue Workout
+                <img src="img/resume.png" alt="chart icon" class="icon-small">
+              </a>
+              <a href="/exercise" class="huge positive ui button">
+                New Workout
+                <img src="img/add_new.png" alt="chart icon" class="icon-small">
+              </a>
             </div>
           </div>
         </div>
@@ -41,9 +57,9 @@
   <div id="toast">
     Workout Added Successfully!
   </div>
-  <script src="/api.js"></script>
-  <script src="/workout.js"></script>
-  <script src="/index.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/workout.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>
