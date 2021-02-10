@@ -27,6 +27,8 @@ async function initExercise() {
   if (workout) {
     location.search = `?id=${workout._id}`;
   }
+  const lastWorkout = await API.getLastWorkout();
+  renderLastWorkout(lastWorkout);
 }
 
 initExercise();
@@ -116,6 +118,8 @@ async function handleFormSubmit(event) {
   await API.addExercise(workoutData);
   clearInputs();
   toast.classList.add('success');
+  const lastWorkout = await API.getLastWorkout();
+  renderLastWorkout(lastWorkout);
 }
 
 function handleToastAnimationEnd() {
