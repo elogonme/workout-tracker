@@ -137,6 +137,8 @@ function clearInputs() {
   validateInputs();
 }
 
+
+
 if (workoutTypeSelect) {
   workoutTypeSelect.addEventListener('change', handleWorkoutTypeChange);
 }
