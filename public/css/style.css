@@ -15,6 +15,7 @@ body
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url("bg.jpg");
 }
 
 nav {
@@ -120,8 +121,12 @@ input {
 }
 
 .wrapper {
-  background-color: #f2f8ff;
+  // background-color: #f2f8ff;
   padding-bottom: 50px;
+}
+
+.stats {
+  background-color: #f2f8ff;
 }
 
 .card.m-auto,
