@@ -24,6 +24,5 @@ app.use(require('./routes/api-routes.js'));
 app.use(require('./routes/html-routes.js'));
 
 app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
   console.log(`App running on port ${PORT}!`);
 });

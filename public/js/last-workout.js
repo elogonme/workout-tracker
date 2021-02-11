@@ -3,7 +3,7 @@ function renderLastWorkout(lastWorkoutData) {
   if (!lastWorkoutData) {
     const error = document.querySelector('#error');
     error.classList.remove('d-none');
-    error.classList.add('animate__heartBeat');
+    error.classList.add('animate__zoomIn');
     lastWorkout.classList.add('d-none');
     return
   }
