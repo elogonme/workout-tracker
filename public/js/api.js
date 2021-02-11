@@ -6,22 +6,30 @@ const API = {
     } catch (err) {
       console.log(err);
     }
-    const json = await res.json();
-
-    return json[json.length - 1];
+    if (res) {
+      const json = await res.json();
+      return json[json.length - 1];
+    }
+    return
   },
-  async addExercise(data) {
+  addExercise(data) {
     const id = location.search.split('=')[1];
-
-    const res = await fetch(`/api/workouts/${id}`, {
+    let exercise = data;
+    exercise.id = id;
+    console.log('adding: ', exercise);
+    fetch(`/api/workouts/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
+    }).then(response => {
+      document.querySelector('#error').classList.add('d-none');
+      return response.json();
+    })
+    .catch((err) => {
+      // fetch failed, so save in indexed db
+      console.log('Server not responded');
+      saveWorkout(data);
     });
-
-    const json = await res.json();
-
-    return json;
   },
   async createWorkout(data = {}) {
     const res = await fetch('/api/workouts', {

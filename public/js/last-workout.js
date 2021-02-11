@@ -1,5 +1,10 @@
 function renderLastWorkout(lastWorkoutData) {
   const lastWorkout = document.querySelector('.last-workout');
+  if (!lastWorkoutData) {
+    document.querySelector('#error').classList.remove('d-none');
+    lastWorkout.classList.add('d-none');
+    return
+  }
   const exTable = document.querySelector('#ex-list');
   exTable.innerHTML = '';
   lastWorkout.classList.remove('d-none');

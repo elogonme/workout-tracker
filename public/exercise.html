@@ -90,6 +90,16 @@
       </div>
     </div>
   </div>
+  <!-- Server offline message -->
+  <div id="error" class="ui grid center aligned d-none animate__animated animate__zoomIn">
+    <div class="ui negative message eight wide column">
+      <div class="header">
+        Server is offline!
+      </div>
+      <p>Saved exercise to memory.
+    </p></div>
+  </div>
+  
   <!-- Last workout info -->
   <div class="last-workout d-none ui center aligned container">
     <h2 class="animate__animated animate__pulse">
@@ -114,6 +124,7 @@
   <div id="toast">
     Workout Added Successfully!
   </div>
+  <script src="js/db.js"></script>
   <script src="js/api.js"></script>
   <script src="js/last-workout.js"></script>
   <script src="js/exercise.js"></script>
