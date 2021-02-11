@@ -10,12 +10,12 @@ html,
 body
 {
   height: 100%;
-  background-color: #f2f8ff;
 }
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-image: url("bg.jpg");
+  overflow-y: auto;
 }
 
 nav {
@@ -121,8 +121,7 @@ input {
 }
 
 .wrapper {
-  // background-color: #f2f8ff;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 
 .stats {
@@ -139,7 +138,7 @@ form .workout-type,
 form .cardio-form div,
 form .resistance-form div {
   display: flex;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 form label {
@@ -162,10 +161,10 @@ form::after {
   display: none !important;
 }
 
-.exercise .ui.card {
-  width: 400px;
-  max-width: 600px;
-}
+// .exercise .ui.card {
+//   width: 400px;
+//   max-width: 600px;
+// }
 
 .exercise .buttons {
   margin-top: 20px;
@@ -277,7 +276,7 @@ button {
 form .cardio-form div,
 form .resistance-form div {
   display: flex;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 form label {
@@ -397,10 +396,6 @@ form > button {
   margin-bottom: 5px;
 }
 
-/* .workout .card {
-  width: 350px;
-} */
-
 .prev-workout button {
   margin: 10px;
 }
@@ -452,6 +447,10 @@ form > button {
 .cardio-form,
 .resistance-form {
   padding: 10px;
+}
+
+.last-workout {
+  padding-bottom: 20px;
 }
 
 @keyframes toast {

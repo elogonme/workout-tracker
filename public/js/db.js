@@ -12,7 +12,6 @@ request.onsuccess = function (event) {
   db = event.target.result;
 
   if (navigator.onLine) {
-    console.log('checking db from db.js')
     checkDatabase();
   }
 };
@@ -31,7 +30,6 @@ function saveWorkout(workout) {
 }
 
 function checkDatabase() {
-  console.log('Checking DB');
   // open a transaction on your pending db
   const transaction = db.transaction(["pending-workouts"], "readwrite");
   // access your pending object store
@@ -41,7 +39,6 @@ function checkDatabase() {
 
   getAll.onsuccess = function () {
     if (getAll.result.length > 0) {
-      console.log('bulk post');
       fetch('/api/workouts-bulk', {
         method: 'POST',
         body: JSON.stringify(getAll.result),
@@ -58,6 +55,13 @@ function checkDatabase() {
           const pendingStore = transaction.objectStore("pending-workouts");
           // clear all items in your store
           pendingStore.clear();
+          // Display message that offline data is saved to server
+          const serverUp = document.querySelector('#serverUp');
+          serverUp.classList.remove('d-none');
+          serverUp.classList.add('animate__zoomIn');
+          setTimeout(() => {
+            serverUp.classList.add('d-none');
+          }, 3000);
         });
     }
   };

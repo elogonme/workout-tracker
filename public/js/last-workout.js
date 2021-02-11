@@ -1,7 +1,9 @@
 function renderLastWorkout(lastWorkoutData) {
   const lastWorkout = document.querySelector('.last-workout');
   if (!lastWorkoutData) {
-    document.querySelector('#error').classList.remove('d-none');
+    const error = document.querySelector('#error');
+    error.classList.remove('d-none');
+    error.classList.add('animate__heartBeat');
     lastWorkout.classList.add('d-none');
     return
   }

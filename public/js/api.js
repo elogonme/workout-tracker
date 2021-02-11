@@ -16,13 +16,11 @@ const API = {
     const id = location.search.split('=')[1];
     let exercise = data;
     exercise.id = id;
-    console.log('adding: ', exercise);
     fetch(`/api/workouts/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     }).then(response => {
-      document.querySelector('#error').classList.add('d-none');
       return response.json();
     })
     .catch((err) => {

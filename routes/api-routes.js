@@ -49,10 +49,7 @@ router.get('/api/workouts/range', (req, res) => {
 });
 
 // save exercises in bulk if app was offline
-router.post('/api/workouts-bulk', ( req, res) => {
-  const { body } = req;
-  console.log(req.body);
-  console.log(body[0].id);
+router.post('/api/workouts-bulk', ( { body }, res) => {
   Workout.findByIdAndUpdate(body[0].id, { $push: { exercises: { $each: body }}})
     .then((dbWorkout) => {
       res.json(dbWorkout);
