@@ -3,7 +3,7 @@ const Workout = require('../models/workout.js');
 
 // Get all workouts route and adding totalDuration
 router.get('/api/workouts', (req, res) => {
-  Workout.aggregate([{ $set: { totalDuration: { $sum: '$exercises.duration' } } }])
+  Workout.aggregate([{ $set: { totalDuration: { $sum: '$exercises.duration' }}}])
     .sort({ day: 1 })
     .then((dbWorkout) => {
       res.json(dbWorkout);
@@ -48,15 +48,15 @@ router.get('/api/workouts/range', (req, res) => {
     });
 });
 
-// TODO save workouts in bulk if app was offline
-// router.post("/api/transaction/bulk", ({ body }, res) => {
-//   Transaction.insertMany(body)
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
+// save exercises in bulk if app was offline
+router.post('/api/workouts-bulk', ( { body }, res) => {
+  Workout.findByIdAndUpdate(body[0].id, { $push: { exercises: { $each: body }}})
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
 
 module.exports = router;
